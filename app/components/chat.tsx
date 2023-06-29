@@ -466,11 +466,11 @@ export function ChatActions(props: {
         }}
       />
 
-      <ChatAction
+      {/* <ChatAction
         onClick={nextModel}
         text={currentModel}
         icon={<RobotIcon />}
-      />
+      /> */}
     </div>
   );
 }
@@ -840,7 +840,7 @@ export function Chat() {
               />
             </div>
           )}
-          <div className="window-action-button">
+          {/* <div className="window-action-button">
             <IconButton
               icon={<ExportIcon />}
               bordered
@@ -849,7 +849,7 @@ export function Chat() {
                 setShowExport(true);
               }}
             />
-          </div>
+          </div> */}
           {showMaxIcon && (
             <div className="window-action-button">
               <IconButton
