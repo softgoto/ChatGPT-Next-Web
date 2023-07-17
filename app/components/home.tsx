@@ -32,8 +32,8 @@ import { api } from "../client/api";
 export function Loading(props: { noLogo?: boolean }) {
   return (
     <div className={styles["loading-content"] + " no-dark"}>
-      {!props.noLogo && <BotIcon />}
-      <LoadingIcon />
+      {/* {!props.noLogo && <BotIcon />} */}
+      <LoadingIcon style={{ color: "red" }} />
     </div>
   );
 }

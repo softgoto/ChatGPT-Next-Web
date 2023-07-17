@@ -10,6 +10,7 @@ import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
+import mobileLogo from "../assets/images/mobile_logo.png";
 
 import Locale from "../locales";
 
@@ -117,13 +118,12 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          ChatGPT 体验版
+          豆 Chat
         </div>
-        <div className={styles["sidebar-sub-title"]}>
-          你的专属AI助手
-        </div>
+        <div className={styles["sidebar-sub-title"]}>您的专属豆子助手</div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
-          <ChatGptIcon />
+          {/* <ChatGptIcon /> */}
+          <img className={styles["sidebar-logo-img"]} src={mobileLogo.src} />
         </div>
       </div>
 
@@ -159,6 +159,7 @@ export function SideBar(props: { className?: string }) {
         <div className={styles["sidebar-actions"]}>
           <div className={styles["sidebar-action"] + " " + styles.mobile}>
             <IconButton
+              className={styles["sidebar-button"]}
               icon={<CloseIcon />}
               onClick={async () => {
                 if (await showConfirm(Locale.Home.DeleteChat)) {
@@ -169,7 +170,11 @@ export function SideBar(props: { className?: string }) {
           </div>
           <div className={styles["sidebar-action"]}>
             <Link to={Path.Settings}>
-              <IconButton icon={<SettingsIcon />} shadow />
+              <IconButton
+                className={styles["sidebar-button"]}
+                icon={<SettingsIcon />}
+                shadow
+              />
             </Link>
           </div>
           {/* <div className={styles["sidebar-action"]}>
@@ -180,6 +185,7 @@ export function SideBar(props: { className?: string }) {
         </div>
         <div>
           <IconButton
+            className={styles["sidebar-button"]}
             icon={<AddIcon />}
             text={shouldNarrow ? undefined : Locale.Home.NewChat}
             onClick={() => {

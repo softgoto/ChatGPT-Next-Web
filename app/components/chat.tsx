@@ -447,7 +447,7 @@ export function ChatActions(props: {
         />
       )}
 
-      <ChatAction
+      {/* <ChatAction
         onClick={nextTheme}
         text={Locale.Chat.InputActions.Theme[theme]}
         icon={
@@ -461,7 +461,7 @@ export function ChatActions(props: {
             ) : null}
           </>
         }
-      />
+      /> */}
 
       <ChatAction
         onClick={props.showPromptHints}
@@ -828,7 +828,10 @@ export function Chat() {
 
   return (
     <div className={styles.chat} key={session.id}>
-      <div className="window-header" data-tauri-drag-region>
+      <div
+        className={`window-header ${styles["chat-window-header"]}`}
+        data-tauri-drag-region
+      >
         {isMobileScreen && (
           <div className="window-actions">
             <div className={"window-action-button"}>

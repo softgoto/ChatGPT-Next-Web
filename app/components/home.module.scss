@@ -42,7 +42,11 @@
   width: var(--sidebar-width);
   box-sizing: border-box;
   padding: 20px;
-  background-color: var(--second);
+  // background-color: var(--second);
+  background: url(../assets/images/mobile_bg.png);
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   box-shadow: inset -2px 0px 2px 0px rgb(0, 0, 0, 0.05);
@@ -125,24 +129,32 @@
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 116px;
 }
 
 .sidebar-logo {
   position: absolute;
-  right: 0;
+  left: 0;
   bottom: 18px;
+  img{
+    width: 100px;
+    height: 44px;
+    display: flex;
+  }
 }
 
 .sidebar-title {
   font-size: 20px;
   font-weight: bold;
   animation: slide-in ease 0.3s;
+  color: #fff1d9;
 }
 
 .sidebar-sub-title {
   font-size: 12px;
   font-weight: 400;
   animation: slide-in ease 0.3s;
+  color:rgba(255, 241, 217,0.6)
 }
 
 .sidebar-body {
@@ -153,23 +165,29 @@
 
 .chat-item {
   padding: 10px 14px;
-  background-color: var(--white);
+  // background-color: var(--white);
+  background-color: transparent;
   border-radius: 10px;
   margin-bottom: 10px;
   box-shadow: var(--card-shadow);
   transition: background-color 0.3s ease;
   cursor: pointer;
   user-select: none;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   position: relative;
+  border-color: rgba(91, 69, 56,0.6);
+  box-shadow: 0 0 6px rgba(255,255,255,0.6) inset;
 }
 
 .chat-item:hover {
-  background-color: var(--hover-color);
+  // background-color: var(--hover-color);
+  background: transparent;
 }
 
 .chat-item-selected {
-  border-color: var(--primary);
+  // border-color: var(--primary);
+  border-color: rgba(255, 255, 255,1);
+  box-shadow: none;
 }
 
 .chat-item-title {
@@ -181,6 +199,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   animation: slide-in ease 0.3s;
+  color: #fff1d9;
 }
 
 .chat-item-delete {
@@ -204,7 +223,8 @@
 .chat-item-info {
   display: flex;
   justify-content: space-between;
-  color: rgb(166, 166, 166);
+  // color: rgb(166, 166, 166);
+  color: rgba(255, 241, 217,0.6);
   font-size: 12px;
   margin-top: 8px;
   animation: slide-in ease 0.3s;
@@ -313,13 +333,24 @@
   margin-right: 15px;
 }
 
+.sidebar-button{
+  border-radius: 48px;
+}
+
 .loading-content {
+  --primary:#ffffff;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
+
+  background: url(../assets/images/mobile_bg.png);
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .rtl-screen {

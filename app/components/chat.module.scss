@@ -217,6 +217,12 @@
   padding-bottom: 40px;
   position: relative;
   overscroll-behavior: none;
+  background: #f6f6f6;
+  background-image: url(../assets/images/mobile_chat_bg.png);
+  background-size: 100% auto;
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .chat-body-main-title {
@@ -330,12 +336,14 @@
   max-width: 100%;
   margin-top: 10px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.05);
+  // background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 1);
   padding: 10px;
   font-size: 14px;
   user-select: text;
   word-break: break-word;
-  border: var(--border-in-light);
+  // border: var(--border-in-light);
+  border: none;
   position: relative;
   transition: all ease 0.3s;
 }
@@ -355,7 +363,11 @@
 }
 
 .chat-message-user > .chat-message-container > .chat-message-item {
-  background-color: var(--second);
+  // background-color: var(--second);
+  background-color: #311708;
+  :global(.markdown-body){
+    color: #ffffff !important;
+  }
 
   &:hover {
     min-width: 0;
@@ -474,4 +486,9 @@
   .chat-input-send {
     bottom: 30px;
   }
+}
+
+.chat-window-header{
+  background: #faedde;
+  border-bottom-width: 0px;
 }
