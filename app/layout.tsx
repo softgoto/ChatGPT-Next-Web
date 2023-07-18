@@ -5,8 +5,8 @@ import "./styles/highlight.scss";
 import { getClientConfig } from "./config/client";
 
 export const metadata = {
-  title: "ChatGPT 体验版",
-  description: "你的专属AI助手",
+  title: "豆Chat",
+  description: "您的专属豆子助手",
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -17,7 +17,7 @@ export const metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "ChatGPT 体验版",
+    title: "豆Chat",
     statusBarStyle: "default",
   },
 };
