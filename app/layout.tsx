@@ -33,6 +33,14 @@ export default function RootLayout({
         <meta name="config" content={JSON.stringify(getClientConfig())} />
         <link rel="manifest" href="/site.webmanifest"></link>
         <script src="/serviceWorkerRegister.js" defer></script>
+
+        <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+        <script>
+          new VConsole();
+
+          this.globalThis || (this.globalThis = this);
+        </script>
+
       </head>
       <body>{children}</body>
     </html>
