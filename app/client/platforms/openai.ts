@@ -42,6 +42,9 @@ export class ChatGPTApi implements LLMApi {
   }
 
   async chat(options: ChatOptions) {
+    // 禁用stream模式
+    options.config.stream = false;
+
     const messages = options.messages.map((v) => ({
       role: v.role,
       content: v.content,
