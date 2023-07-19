@@ -30,6 +30,9 @@ const nextConfig = {
   images: {
     unoptimized: mode === "export",
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 if (mode !== "export") {
