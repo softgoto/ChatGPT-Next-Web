@@ -128,7 +128,9 @@ function fillTemplateWith(input: string, modelConfig: ModelConfig) {
   }
 
   Object.entries(vars).forEach(([name, value]) => {
-    output = output.replaceAll(`{{${name}}}`, value);
+    // output = output.replaceAll(`{{${name}}}`, value);
+    var reg = new RegExp("{{" + name + "}}", "g");
+    output = output.replace(reg, value);
   });
 
   return output;

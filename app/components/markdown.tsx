@@ -20,15 +20,16 @@ export function Mermaid(props: { code: string }) {
 
   useEffect(() => {
     if (props.code && ref.current) {
-      mermaid
-        .run({
-          nodes: [ref.current],
-          suppressErrors: true,
-        })
-        .catch((e) => {
-          setHasError(true);
-          console.error("[Mermaid] ", e.message);
-        });
+      // 低版本浏览器报错
+      // mermaid
+      //   .run({
+      //     nodes: [ref.current],
+      //     suppressErrors: true,
+      //   })
+      //   .catch((e) => {
+      //     setHasError(true);
+      //     console.error("[Mermaid] ", e.message);
+      //   });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.code]);
@@ -110,7 +111,7 @@ function _MarkDownContent(props: { content: string }) {
     <ReactMarkdown
       remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
       rehypePlugins={[
-        RehypeKatex,
+        // RehypeKatex,
         [
           RehypeHighlight,
           {
