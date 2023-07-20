@@ -829,11 +829,13 @@ export function Chat() {
   return (
     <div className={styles.chat} key={session.id}>
       <div
-        className={`window-header ${styles["chat-window-header"]}`}
+        className={`window-header ${
+          isMobileScreen ? styles["chat-window-header"] : ""
+        }`}
         data-tauri-drag-region
       >
         {isMobileScreen && (
-          <div className="window-actions">
+          <div className="window-actions window-back">
             <div className={"window-action-button"}>
               <IconButton
                 icon={<ReturnIcon />}
@@ -1056,7 +1058,7 @@ export function Chat() {
           <textarea
             ref={inputRef}
             className={styles["chat-input"]}
-            placeholder={Locale.Chat.Input(submitKey)}
+            placeholder={"输入/触发补全，输入:触发命令"}
             onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
             onKeyDown={onInputKeyDown}

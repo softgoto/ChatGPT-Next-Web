@@ -491,4 +491,11 @@
 .chat-window-header{
   background: #faedde;
   border-bottom-width: 0px;
+  justify-content: center;
+  :global{
+    .window-back{
+      position: absolute;
+      left: 20px;
+    }
+  }
 }
