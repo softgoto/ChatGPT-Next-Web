@@ -28,6 +28,7 @@ import { useAppConfig } from "../store/config";
 import { AuthPage } from "./auth";
 import { getClientConfig } from "../config/client";
 import { api } from "../client/api";
+import dd from "dingtalk-jsapi";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -84,6 +85,34 @@ export function useSwitchTheme() {
     }
   }, [config.theme]);
 }
+
+function Permission() {
+  return <div className={styles["no-permission"]}>暂无访问权限</div>;
+}
+
+const usePermission = () => {
+  const [hasPermission, setHasPermission] = useState<boolean>(true);
+
+  useEffect(() => {
+    // 在钉钉应用内
+    if (dd.env.platform != "notInDingTalk") {
+      dd.ready(async () => {
+        try {
+          let code = await dd.runtime.permission.requestAuthCode({
+            corpId: "dingec9581d3fe7b9bd935c2f4657eb6378f",
+          });
+        } catch (error) {
+          console.log("getcode-error====", error);
+          setHasPermission(false);
+        }
+      });
+    } else {
+      setHasPermission(false);
+    }
+  }, []);
+
+  return hasPermission;
+};
 
 const useHasHydrated = () => {
   const [hasHydrated, setHasHydrated] = useState<boolean>(false);
@@ -168,12 +197,18 @@ export function useLoadData() {
 export function Home() {
   useSwitchTheme();
   useLoadData();
+  let hasPermission = usePermission();
+  let hasHydrated = useHasHydrated();
 
   useEffect(() => {
     console.log("[Config] got config from build time", getClientConfig());
   }, []);
 
-  if (!useHasHydrated()) {
+  if (!hasPermission) {
+    return <Permission />;
+  }
+
+  if (!hasHydrated) {
     return <Loading />;
   }
 
