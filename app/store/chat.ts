@@ -335,12 +335,19 @@ export const useChatStore = create<ChatStore>()(
           },
           onError(error) {
             const isAborted = error.message.includes("aborted");
-            botMessage.content =
-              "\n\n" +
-              prettyObject({
-                error: true,
-                message: error.message,
-              });
+            // botMessage.content =
+            //   "\n\n" +
+            //   prettyObject({
+            //     error: true,
+            //     message: error.message,
+            //   });
+            if (isAborted) {
+              botMessage.content =
+                "噢，看来请求在途中遇到了一些困难，它需要一点时间来重新组织自己。请您耐心等待一下，我会尽力让它恢复并完成您的需求。";
+            } else {
+              botMessage.content =
+                "糟糕！我在处理您的请求时遇到了一些问题，就像是我自己的思维有点混乱了。我会立即调整自己并尽快解决这个问题。请您稍等片刻，我会尽力恢复正常并完成您的需求。";
+            }
             botMessage.streaming = false;
             userMessage.isError = !isAborted;
             botMessage.isError = !isAborted;
