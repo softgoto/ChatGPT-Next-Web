@@ -91,27 +91,42 @@ function Permission() {
 }
 
 const usePermission = () => {
-  const [hasPermission, setHasPermission] = useState<boolean>(true);
+  const [hasPermissionLi, setHasPermissionLi] = useState<boolean>(true);
+  const [hasPermissionKai, setHasPermissionKai] = useState<boolean>(true);
 
   useEffect(() => {
     // 在钉钉应用内
     if (dd.env.platform != "notInDingTalk") {
+      // for 立
       dd.ready(async () => {
         try {
           let code = await dd.runtime.permission.requestAuthCode({
             corpId: "dingec9581d3fe7b9bd935c2f4657eb6378f",
           });
         } catch (error) {
-          console.log("getcode-error====", error);
-          setHasPermission(false);
+          console.log("getcode-error====Li", error);
+          setHasPermissionLi(false);
+        }
+      });
+
+      // for 凯
+      dd.ready(async () => {
+        try {
+          let code = await dd.runtime.permission.requestAuthCode({
+            corpId: "ding0af2bddef03e440b35c2f4657eb6378f",
+          });
+        } catch (error) {
+          console.log("getcode-error====Kai", error);
+          setHasPermissionKai(false);
         }
       });
     } else {
-      setHasPermission(false);
+      setHasPermissionLi(false);
+      setHasPermissionKai(false);
     }
   }, []);
 
-  return hasPermission;
+  return hasPermissionLi || hasPermissionKai;
 };
 
 const useHasHydrated = () => {
