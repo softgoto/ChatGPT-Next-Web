@@ -118,7 +118,7 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          豆 Chat
+          嘟 Chat
         </div>
         <div className={styles["sidebar-sub-title"]}>您的专属豆子助手</div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
