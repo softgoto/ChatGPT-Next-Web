@@ -5,7 +5,7 @@ import "./styles/highlight.scss";
 import { getClientConfig } from "./config/client";
 
 export const metadata = {
-  title: "豆Chat",
+  title: "嘟Chat",
   description: "您的专属豆子助手",
   viewport: {
     width: "device-width",
@@ -17,7 +17,7 @@ export const metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "豆Chat",
+    title: "嘟Chat",
     statusBarStyle: "default",
   },
 };
@@ -34,13 +34,11 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest"></link>
         <script src="/serviceWorkerRegister.js" defer></script>
 
-        <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+        {/* <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script> */}
         <script>
-          new VConsole();
-
+          {/* new VConsole(); */}
           this.globalThis || (this.globalThis = this);
         </script>
-
       </head>
       <body>{children}</body>
     </html>
